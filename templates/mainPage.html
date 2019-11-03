@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+{% block title %}Translameme{% endblock %}
+
+{% block page_content %} <!-- we don't use just content bcs it's bootstrap's key word -->
+
+        <h1 style="text-align:center" link href="https://fonts.googleapis.com/css?family=Monofett&display=swap" rel="stylesheet"> <b>TRANSLAMEME</b></h1>
+        <h3 style="text-align:center">Ever want to understand what a foreign meme says online? <br> ~We've got you!~ </h3> <br>
+        <h3 style="text-align:center"> Translate *any* image with text you find on the web by just providing their URL! </h3> <br>  
+        <h2 style="text-align:center">Submit the URL to the image below!</h2><br>
+        <p style="text-align:center">P.S. To find the URL of an image, right click on the image then select 'Copy Image Address'</p>
+
+	    <div class="container" style="text-align:center">
+
+                    {{ wtf.quick_form(form) }}
+         </div>
+         <h4 style="text-align:center">Click <a href="{{ url_for('motivationPage')}}">here</a> to read about the motivation of this project</h4>
+        {% if imgPath %}
+        <br>
+        <hr>
+        <br>
+        <div style="text-align:center">
+            <img src={{imgPath}} style="max-width:75%" ></a>
+        </div>
+        {% endif %}
+        {% if text %}
+            <h2> Your initial text image: </h2>
+            <h5>{{text}}</h5>
+	    {% endif %}
+        {% if translation %}
+            <h2> Translation to your text image: </h2>
+            <h5>{{translation}}</h5>
+        {% endif %}
+{% endblock %} 

@@ -1,0 +1,7 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block content %}
+	<div class="container"> <!-- will vary from page to page -->
+		{% block page_content %}{% endblock %} <!-- lets pages define it -->
+	</div>
+{% endblock %}
